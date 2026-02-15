@@ -14,7 +14,8 @@
     "commands": [
       {
         "command": "nnnHere.open",
-        "title": "nnn"
+        "title": "nnn",
+        "icon": "$(console)"
       },
       {
         "command": "workbench.files.action.showActiveFileInExplorer",
@@ -31,6 +32,11 @@
       "view/title": [
         {
           "command": "workbench.files.action.showActiveFileInExplorer",
+          "when": "view == workbench.explorer.fileView && editorIsOpen",
+          "group": "navigation"
+        },
+        {
+          "command": "nnnHere.open",
           "when": "view == workbench.explorer.fileView && editorIsOpen",
           "group": "navigation"
         }

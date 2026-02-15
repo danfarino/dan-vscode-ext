@@ -5,10 +5,19 @@ function shellEscape(arg: string): string {
 }
 
 export function activate(context: vscode.ExtensionContext) {
-  const disposable = vscode.commands.registerCommand('nnnHere.open', (uri: vscode.Uri) => {
-    const terminal = vscode.window.createTerminal();
+  const disposable = vscode.commands.registerCommand('nnnHere.open', (uri?: vscode.Uri) => {
+    if (!uri) {
+      const activeEditor = vscode.window.activeTextEditor;
+      if (!activeEditor) {
+        return;
+      }
+      uri = activeEditor.document.uri;
+    }
+    const terminal = vscode.window.createTerminal({
+      shellPath: process.env.SHELL || '/bin/bash',
+      shellArgs: ['-ic', `n ${shellEscape(uri.fsPath)}`],
+    });
     terminal.show();
-    terminal.sendText(`n ${shellEscape(uri.fsPath)}`);
   });
 
   context.subscriptions.push(disposable);
