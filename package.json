@@ -15,12 +15,24 @@
       {
         "command": "nnnHere.open",
         "title": "nnn"
+      },
+      {
+        "command": "workbench.files.action.showActiveFileInExplorer",
+        "title": "Reveal Active File in Explorer",
+        "icon": "$(target)"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "nnnHere.open"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "workbench.files.action.showActiveFileInExplorer",
+          "when": "view == workbench.explorer.fileView && editorIsOpen",
+          "group": "navigation"
         }
       ]
     }
