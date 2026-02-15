@@ -33,12 +33,12 @@
         {
           "command": "workbench.files.action.showActiveFileInExplorer",
           "when": "view == workbench.explorer.fileView && editorIsOpen",
-          "group": "navigation"
+          "group": "navigation@1"
         },
         {
           "command": "nnnHere.open",
           "when": "view == workbench.explorer.fileView && editorIsOpen",
-          "group": "navigation"
+          "group": "navigation@2"
         }
       ]
     }
