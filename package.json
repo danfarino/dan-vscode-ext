@@ -29,6 +29,11 @@
           "command": "nnnHere.open"
         }
       ],
+      "editor/title/context": [
+        {
+          "command": "nnnHere.open"
+        }
+      ],
       "view/title": [
         {
           "command": "workbench.files.action.showActiveFileInExplorer",
